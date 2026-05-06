@@ -1,46 +1,65 @@
-Sistema de Gestión de Empleados - CRUD Full Stack
-Este proyecto es una aplicación móvil multiplataforma diseñada para la gestión administrativa de empleados, desarrollada como parte de la formación en el programa ADSO (Análisis y Desarrollo de Software) en el SENA.
+# 📱 Sistema de Gestión de Empleados (CRUD Full-Stack)
 
-La arquitectura se basa en un modelo Cliente-Servidor que integra un frontend móvil, un backend robusto y una base de datos relacional.
+Este proyecto es una aplicación móvil multiplataforma diseñada para la administración y control de nómina de empleados. Fue desarrollado como evidencia práctica para el programa de formación **Tecnólogo en Análisis y Desarrollo de Software (ADSO)** del **SENA**.
 
-🚀 Tecnologías Utilizadas
-Frontend
-React Native (Expo): Framework para el desarrollo móvil.
+La arquitectura del sistema implementa un modelo **Cliente-Servidor (Desacoplado)** de tres capas: Frontend Móvil, Backend (API REST) y Base de Datos Relacional.
 
-React Native Paper: Librería de componentes para una interfaz basada en Material Design.
+---
 
-Expo Router: Enrutamiento basado en archivos.
+## 🚀 Tecnologías Utilizadas
 
-Backend
-Node.js & Express: Entorno de ejecución y framework para la construcción de la API REST.
+### 🎨 Frontend (Móvil)
+* **React Native & Expo:** Entorno de desarrollo para aplicaciones móviles nativas multiplataforma.
+* **Expo Router:** Enrutamiento y navegación moderna basada en archivos (`app/_layout.tsx` e `app/index.tsx`).
+* **React Native Paper:** Librería de componentes de UI basada en *Material Design* para una interfaz limpia y profesional.
 
-MySQL: Motor de base de datos relacional para la persistencia de datos.
+### ⚙️ Backend (Servidor)
+* **Node.js & Express:** Entorno de ejecución y framework para la creación de la API REST y el manejo de rutas HTTP.
+* **MySQL & mysql2:** Base de datos relacional y conector que utiliza consultas preparadas para asegurar la persistencia de los datos.
+* **CORS:** Control de acceso que permite la conexión segura entre el dispositivo móvil (o emulador) y el servidor local.
+* **Dotenv:** Gestión de credenciales mediante variables de entorno seguras.
 
-CORS: Middleware para permitir la comunicación entre el dispositivo móvil y el servidor local.
+---
 
-Dotenv: Gestión de variables de entorno seguras.
+## 📂 Estructura del Proyecto
 
-📂 Estructura del Proyecto
+```text
 PROYECTO_EMPLEADO_SENA/
-├── backend-empleado/      # Servidor Node.js + Express
-│   ├── .env               # Variables sensibles (No subido al repo)
-│   ├── .gitignore         # Configuración de exclusión de Git
-│   ├── server.js          # Archivo principal del servidor
-│   └── package.json
-└── frontend-movil/       # Aplicación React Native
-├── app/               # Pantallas y Layout (Expo Router)
-├── package.json
-└── app.json
+├── backend-empleado/      # Servidor API REST (Node.js + Express)
+│   ├── .env               # Configuración local de base de datos (Excluido en .gitignore)
+│   ├── .gitignore         # Archivos omitidos en el control de versiones
+│   ├── server.js          # Archivo con las rutas de la API (GET, POST, PUT, DELETE)
+│   └── package.json       # Dependencias del servidor
+│
+└── frontend-movil/       # Aplicación Móvil (React Native + Expo)
+    ├── app/               # Carpeta contenedora de vistas (Expo Router)
+    │   ├── _layout.tsx    # Esqueleto y envoltura de PaperProvider
+    │   └── index.tsx      # Interfaz de usuario principal y lógica de fetch
+    ├── app-example/       # Respaldo de archivos de plantilla original de Expo
+    ├── package.json       # Dependencias de la app móvil
+    └── app.json           # Configuración global de Expo
 
 🛠️ Instalación y Configuración
 1. Requisitos Previos
 Node.js instalado.
 
 Servidor MySQL (XAMPP, WAMP o Docker).
+Configuración de la Base de Datos
+Crea una base de datos en MySQL llamada proyecto_empleado_sena y ejecuta la siguiente estructura de tabla:
+
+SQL
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100),
+    salario DECIMAL(10, 2) NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 Dispositivo móvil con Expo Go o Emulador de Android Studio.
 
-2. Configuración del Backend
+ Configuración del Backend
 Entra a la carpeta backend-empleado.
 
 Instala las dependencias: npm install.
