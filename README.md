@@ -38,8 +38,9 @@ PROYECTO_EMPLEADO_SENA/
     ├── app-example/       # Respaldo de archivos de plantilla original de Expo
     ├── package.json       # Dependencias de la app móvil
     └── app.json           # Configuración global de Expo
+```
 
-🛠️ Instalación y Configuración
+##🛠️ Instalación y Configuración
 1. Requisitos Previos
 Node.js instalado.
 
